@@ -52,6 +52,7 @@ class WiktionaryParser {
             String validChar = "[\\w\\-\\.,;]";
             String optionalPunctuation = "[\\.,;]?";
             
+            
             String plainWordPattern = "\\w+" + optionalPunctuation;
             String linkPattern = "\\[\\[(\\w+)\\]\\](\\w*?)" + optionalPunctuation;
             String linkCompositePattern = "\\[\\[(\\w+)\\|(\\w+)\\]\\](\\w*?)" + 
