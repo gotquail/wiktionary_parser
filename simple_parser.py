@@ -1,7 +1,24 @@
 import sys
-import os
 import httplib
 import re
+import Queue
+import threading
+
+NUM_THREADS = 1
+
+queue_in = Queue.Queue()
+queue_out = Queue.Queue()
+
+class ThreadWikiQuery(threading.Thread):
+    def __init__(self, queue_in, queue_out):
+        threading.Thread.__init__(self)
+        self.queue_in = queue_in
+        self.queue_out = queue_out
+
+    def run(self):
+        while True:
+            print "123" #todo
+
 
 def main():
 
@@ -32,6 +49,7 @@ def main():
         data1 = r1.read()
         # print data1
 
+        
         m = re.search('"text":{"\*":"(.*?)\\\\n\\\\n\\\\n', data1);
         if m:
             # print m.group(1)
